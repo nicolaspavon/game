@@ -13,6 +13,10 @@ class Game < Gosu::Window
     @background.draw
   end
 
+  def update
+    @background.scroll!
+  end
+
   def button_down (id)
     if id == Gosu::KbEscape
       close

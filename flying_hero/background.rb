@@ -1,7 +1,7 @@
 require 'gosu'
 
 class Background
-
+SCROLL_SPEED = 2
    def initialize
      @image = Gosu::Image.new('assets/images/background.jpg', tileable: true)
 
@@ -10,9 +10,17 @@ class Background
      @x = 0
 
    end
+   def scroll!
+     @x -= SCROLL_SPEED
+     @x %= @width
+   end
+
+   def update
+   end
 
    def draw
      @image.draw(@x,0,0)
+     @image.draw(@x -@image.width,0,0)
 
    end
 
