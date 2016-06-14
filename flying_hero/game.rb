@@ -18,6 +18,9 @@ class Game < Gosu::Window
 
   def update
     @background.scroll!
+    @hero.move_up! if button_down?(Gosu::KbUp)
+    @hero.move_down!(self.height) if button_down?(Gosu::KbDown)
+
   end
 
   def button_down (id)
@@ -25,4 +28,5 @@ class Game < Gosu::Window
       close
     end
   end
+
 end
