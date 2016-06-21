@@ -8,7 +8,11 @@ class FlyingItem
     @x = window.width - 100
   end
   def draw
-    @image.draw(@x, @y, 1, 1, 1)
+    if @x >0
+      @image.draw(@x, @y, 1, 1, 1)
+    else
+      @x = window.width - 100
+    end
   end
   def update
   end
