@@ -39,6 +39,11 @@ class Game < Gosu::Window
     @hero.move_up! if button_down?(Gosu::KbUp)
     @hero.move_down!(self.height) if button_down?(Gosu::KbDown)
 
+    if @hero.bumped_into?(@candy)
+      @candy.reset!(self)
+      @scoreboard.update_score!(@candy.points)
+    end
+
   end
 
   def button_down (id)

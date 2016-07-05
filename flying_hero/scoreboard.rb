@@ -3,13 +3,15 @@ require_relative 'game'
 class Scoreboard
   def initialize
     @score = 0
-    @message = Gosu::Image.from_text(self, info, Gosu.default_font_name, 60)
-
+    @font = Gosu::Font.new(72, name:'Arial')
   end
   def draw
-    @message.draw(10, 10, 2)
+    @font.draw(info,0, 0, 1)
   end
   def info
     "#{@score}"
+  end
+  def update_score!(score)
+    @score +=score
   end
 end

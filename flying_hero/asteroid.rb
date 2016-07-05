@@ -12,9 +12,6 @@ class Asteroid < FlyingItem
   def self.image_path
     'assets/images/asteroid.png'
   end
-  def move!
-    @x -= 10
-  end
   def draw
     @image.draw(@x,@y,1,@scale_x,@scale_y)
 

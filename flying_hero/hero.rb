@@ -18,8 +18,34 @@ class Hero
   def move_up!
     @y -= 5 if @y>0
   end
+  
   def move_down!(height)
     @y += 5 if @y < height - @height
+  end
+
+  def bumped_into?(object)
+    object_top = object.y
+    object_bottom = object.y + object.height
+    object_left = object.x
+    object_right = object.x + object.width
+
+    hero_top = @y
+    hero_bottom = @y + @height
+    hero_left = @x
+    hero_right = @x + @width
+
+    if hero_top > object_bottom
+      false
+    elsif hero_bottom < object_top
+      false
+    elsif hero_left > object_right
+      false
+    elsif hero_right < object_left
+      false
+    else
+      true
+    end
+
   end
 
 end
