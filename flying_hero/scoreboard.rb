@@ -14,4 +14,11 @@ class Scoreboard
   def update_score!(score)
     @score +=score
   end
+  def game_over
+    if @score <0
+      true
+    else
+      false
+    end
+  end
 end
